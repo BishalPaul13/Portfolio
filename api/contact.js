@@ -1,3 +1,7 @@
+export const config = {
+  runtime: 'edge',
+};
+
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function badRequest(message) {
@@ -17,7 +21,8 @@ export default async function handler(request) {
 
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
-    return new Response(JSON.stringify({ error: "Server is missing RESEND_API_KEY" }), {
+    console.error("Missing RESEND_API_KEY environment variable");
+    return new Response(JSON.stringify({ error: "Server configuration error" }), {
       status: 500,
       headers: { "Content-Type": "application/json" },
     });
@@ -38,34 +43,54 @@ export default async function handler(request) {
   if (!EMAIL_REGEX.test(email)) return badRequest("Valid email is required");
   if (message.length < 10) return badRequest("Message must be at least 10 characters");
 
-  const resendResponse = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from: "Portfolio Contact <onboarding@resend.dev>",
-      to: ["bishalpaul151@gmail.com"],
-      reply_to: email,
-      subject: `New portfolio message from ${name}`,
-      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
-    }),
-  });
+  console.log("Contact form payload received:", { name, email, messageLength: message.length });
 
-  const resendData = await resendResponse.json().catch(() => ({}));
-  if (!resendResponse.ok) {
-    return new Response(
-      JSON.stringify({ error: resendData?.message || "Failed to send email" }),
-      {
-        status: 502,
-        headers: { "Content-Type": "application/json" },
-      }
-    );
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 8000); // 8 second timeout
+
+  try {
+    const resendResponse = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      signal: controller.signal,
+      body: JSON.stringify({
+        from: "Portfolio Contact <onboarding@resend.dev>",
+        to: ["bishalpaul151@gmail.com"],
+        reply_to: email,
+        subject: `New portfolio message from ${name}`,
+        text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+      }),
+    });
+
+    clearTimeout(timeoutId);
+
+    const resendData = await resendResponse.json().catch(() => ({}));
+    console.log("Resend API response:", resendResponse.status, resendData);
+
+    if (!resendResponse.ok) {
+      return new Response(
+        JSON.stringify({ error: resendData?.message || "Failed to send email" }),
+        {
+          status: 502,
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+    }
+
+    return new Response(JSON.stringify({ success: true }), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
+  } catch (err) {
+    clearTimeout(timeoutId);
+    console.error("Fetch error:", err);
+    const errorMsg = err.name === 'AbortError' ? "Request timed out" : "Internal server error";
+    return new Response(JSON.stringify({ error: errorMsg }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
   }
-
-  return new Response(JSON.stringify({ success: true }), {
-    status: 200,
-    headers: { "Content-Type": "application/json" },
-  });
 }
