@@ -1,4 +1,4 @@
-import { GraduationCap } from "lucide-react";
+ï»¿import { GraduationCap, ChevronRight } from "lucide-react";
 
 const education = [
     {
@@ -83,7 +83,7 @@ export function Experience() {
                                                 key={hIndex}
                                                 className="flex items-start gap-2 text-sm text-muted-foreground"
                                             >
-                                                <span className="text-primary mt-1">•</span>
+                                                <ChevronRight className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                                                 {highlight}
                                             </li>
                                         ))}
