@@ -6,10 +6,14 @@ import { Projects } from "@/components/sections/Projects";
 import { Experience } from "@/components/sections/Experience";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/Footer";
+import { FloatingBubbles } from "@/components/FloatingBubbles";
+import { CustomCursor } from "@/components/CustomCursor";
 
 const Index = () => {
     return (
         <div className="min-h-screen bg-background">
+            <CustomCursor />
+            <FloatingBubbles />
             <Navbar />
             <main>
                 <Hero />

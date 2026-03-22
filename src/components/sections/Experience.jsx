@@ -1,4 +1,4 @@
-﻿import { GraduationCap, ChevronRight } from "lucide-react";
+import { GraduationCap, ChevronRight } from "lucide-react";
 
 const education = [
     {
@@ -7,11 +7,10 @@ const education = [
         company: "Lovely Professional University",
         duration: "2023 - 2027 (Expected)",
         description:
-            "Pursuing a comprehensive computer science education with focus on software engineering and web development.",
+            "Pursuing a comprehensive computer science education focusing on software engineering and full-stack web development.",
         highlights: [
-            "GPA: 8.1/10.0",
-            "Dean's List - All Semesters",
-            "Relevant coursework: Data Structures, Algorithms, Database Systems, Web Development",
+            "8.1/10.0 GPA; consistently recognized on the Dean's List.",
+            "Core focus on Data Structures, Algorithms, Database Systems, and Architecture.",
         ],
     },
     {
@@ -20,12 +19,9 @@ const education = [
         company: "Karim City College, Jamshedpur",
         duration: "2020 - 2022",
         description:
-            "Completed Higher Secondary education with a specialization in Physics, Chemistry, and Mathematics (PCM), building a strong analytical and problem-solving foundation essential for engineering and technical disciplines.",
+            "Higher Secondary education with a specialization in Physics, Chemistry, and Mathematics.",
         highlights: [
-            "Core subjects: Physics, Chemistry, Mathematics",
-            "Developed strong analytical and quantitative reasoning skills",
-            "Participated in practical laboratory experiments and project work",
-            "Built foundational knowledge for engineering and technology fields",
+            "Developed a strong analytical and quantitative foundation essential for complex engineering problem-solving.",
         ],
     },
     {
@@ -34,12 +30,10 @@ const education = [
         company: "Kokpara High School, Kokpara",
         duration: "2018 - 2020",
         description:
-            "Completed secondary education with a focus on Science and Mathematics, establishing a strong academic foundation in core subjects and analytical reasoning.",
+            "Secondary education emphasizing Science and Mathematics.",
         highlights: [
-            "Core subjects: Mathematics, Science, English, Social Studies",
-            "Developed foundational problem-solving and critical thinking skills",
-            "Participated in academic projects and practical science activities",
-            "Consistently maintained strong academic performance",
+            "Consistently maintained strong academic performance.",
+            "Built early foundational analytical and critical thinking skills.",
         ],
     },
 ];
@@ -48,42 +42,47 @@ export function Experience() {
     return (
         <section id="experience" className="section-padding">
             <div className="section-container">
-                <div className="flex items-center gap-4 mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                        <span className="text-primary font-mono text-xl md:text-2xl mr-2">04.</span>
-                        Experience & Education
+                <div className="flex items-center gap-6 mb-16">
+                    <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
+                        Experience & Education<span className="text-primary">.</span>
                     </h2>
                     <div className="section-heading-line" />
                 </div>
 
                 <div className="max-w-4xl">
-                    <div className="flex items-center gap-3 mb-8">
-                        <div className="p-2 rounded-lg bg-accent">
-                            <GraduationCap className="w-5 h-5 text-primary" />
+                    <div className="flex flex-wrap items-center gap-4 mb-10">
+                        <div className="p-3 rounded-xl bg-zinc-900/50 border border-zinc-800/50">
+                            <GraduationCap className="w-6 h-6 text-zinc-300" />
                         </div>
-                        <h3 className="text-xl font-semibold text-foreground">Education</h3>
+                        <h3 className="text-2xl font-bold text-white tracking-tight">Education</h3>
+                        <div className="flex flex-wrap gap-2 text-xs font-mono ml-auto">
+                            <span className="badge">Current: B.Tech CSE</span>
+                            <span className="badge">GPA 8.1/10</span>
+                            <span className="badge">Open to internships</span>
+                        </div>
                     </div>
 
-                    <div className="relative space-y-8 pl-8 border-l-2 border-border/80">
+                    <div className="relative space-y-8">
+                        <div className="absolute left-[7px] top-2 bottom-2 w-[2px] bg-gradient-to-b from-red-500/50 via-red-500/10 to-transparent"></div>
                         {education.map((edu, index) => (
-                            <div key={index} className="relative">
-                                <div className="absolute -left-[25px] w-4 h-4 rounded-full bg-primary border-4 border-background" />
-                                <div className="project-card">
-                                    <h4 className="font-semibold text-foreground mb-1">{edu.title}</h4>
-                                    <p className="text-primary mb-2">{edu.company}</p>
-                                    <p className="text-sm font-mono text-muted-foreground mb-3">
-                                        {edu.duration}
-                                    </p>
-                                    <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
-                                        {edu.description}
-                                    </p>
-                                    <ul className="space-y-2">
+                            <div key={index} className="relative pl-10 group animate-slide-up" style={{ animationDelay: `${index * 0.2}s` }}>
+                                <div className="absolute left-0 top-9 h-[16px] w-[16px] rounded-full border-2 border-red-500 bg-[#0a0a0a] shadow-[0_0_10px_rgba(239,68,68,0.3)] group-hover:bg-red-500 transition-all duration-300" />
+                                <div className="project-card hover:shadow-[0_0_30px_rgba(239,68,68,0.1)]">
+                                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                                        <h4 className="text-xl font-bold text-white">{edu.title}</h4>
+                                        <span className="text-xs px-3 py-1 rounded-full bg-zinc-900/50 border border-zinc-800 text-zinc-400 font-medium tracking-wide">
+                                            {edu.duration}
+                                        </span>
+                                    </div>
+                                    <p className="text-lg text-primary font-medium mb-4">{edu.company}</p>
+                                    <p className="text-zinc-400 text-base mb-6 leading-relaxed">{edu.description}</p>
+                                    <ul className="space-y-3">
                                         {edu.highlights.map((highlight, hIndex) => (
                                             <li
                                                 key={hIndex}
-                                                className="flex items-start gap-2 text-sm text-muted-foreground"
+                                                className="flex items-start gap-3 text-sm text-zinc-400"
                                             >
-                                                <ChevronRight className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                                                <ChevronRight className="w-4 h-4 text-zinc-600 shrink-0 mt-0.5 group-hover:text-primary transition-colors duration-300" />
                                                 {highlight}
                                             </li>
                                         ))}

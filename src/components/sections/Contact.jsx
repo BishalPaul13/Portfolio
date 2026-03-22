@@ -83,34 +83,33 @@ export function Contact() {
     };
 
     return (
-        <section id="contact" className="section-padding bg-secondary/25">
+        <section id="contact" className="section-padding">
             <div className="section-container">
-                <div className="flex items-center gap-4 mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                        <span className="text-primary font-mono text-xl md:text-2xl mr-2">05.</span>
-                        Get In Touch
+                <div className="flex items-center gap-6 mb-16">
+                    <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
+                        Get In Touch<span className="text-primary">.</span>
                     </h2>
                     <div className="section-heading-line" />
                 </div>
 
                 <div className="grid lg:grid-cols-5 gap-12">
                     <div className="lg:col-span-2 space-y-6">
-                        <p className="text-muted-foreground text-lg">
-                            I'm currently open to new opportunities and would love to hear from you.
-                            Whether you have a question, want to collaborate, or just want to say hi,
-                            feel free to reach out!
+                        <p className="text-zinc-400 text-lg leading-relaxed">
+                            I'm currently seeking software engineering internships and entry-level roles.
+                            Whether you have a challenging opportunity, want to collaborate, or just want to connect,
+                            my inbox is always open!
                         </p>
 
-                        <div className="space-y-4">
+                        <div className="space-y-6 pt-4">
                             <div className="flex items-center gap-4">
-                                <div className="p-3 rounded-lg bg-accent">
+                                <div className="p-3 rounded-xl bg-zinc-900 border border-zinc-800">
                                     <Mail className="w-5 h-5 text-primary" />
                                 </div>
                                 <div>
-                                    <p className="text-sm text-muted-foreground">Email</p>
+                                    <p className="text-sm font-medium text-zinc-500">Email</p>
                                     <a
                                         href="mailto:bishalpaul151@gmail.com"
-                                        className="text-foreground hover:text-primary transition-colors"
+                                        className="text-white hover:text-primary transition-colors font-medium"
                                     >
                                         bishalpaul151@gmail.com
                                     </a>
@@ -118,22 +117,22 @@ export function Contact() {
                             </div>
 
                             <div className="flex items-center gap-4">
-                                <div className="p-3 rounded-lg bg-accent">
+                                <div className="p-3 rounded-xl bg-zinc-900 border border-zinc-800">
                                     <MapPin className="w-5 h-5 text-primary" />
                                 </div>
                                 <div>
-                                    <p className="text-sm text-muted-foreground">Location</p>
-                                    <p className="text-foreground">Jalandhar, Punjab</p>
+                                    <p className="text-sm font-medium text-zinc-500">Location</p>
+                                    <p className="text-white font-medium">Jalandhar, Punjab</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div className="lg:col-span-3">
-                        <form onSubmit={handleSubmit} className="project-card shadow-lg">
+                        <form onSubmit={handleSubmit} className="project-card">
                             <div className="grid md:grid-cols-2 gap-4 mb-4">
                                 <div>
-                                    <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                                    <label htmlFor="name" className="block text-sm font-medium text-zinc-300 mb-2">
                                         Name
                                     </label>
                                     <input
@@ -142,16 +141,16 @@ export function Contact() {
                                         value={formData.name}
                                         onChange={(e) => handleChange("name", e.target.value)}
                                         onBlur={() => handleBlur("name")}
-                                        className={`input-field ${errors.name ? "border-destructive focus:ring-destructive/50" : ""}`}
+                                        className={`input-field ${errors.name ? "border-primary focus:ring-primary/50" : ""}`}
                                         placeholder="Your name"
                                     />
                                     {errors.name && (
-                                        <p className="mt-1 text-sm text-destructive">{errors.name}</p>
+                                        <p className="mt-1 text-sm text-primary">{errors.name}</p>
                                     )}
                                 </div>
 
                                 <div>
-                                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                                    <label htmlFor="email" className="block text-sm font-medium text-zinc-300 mb-2">
                                         Email
                                     </label>
                                     <input
@@ -160,17 +159,17 @@ export function Contact() {
                                         value={formData.email}
                                         onChange={(e) => handleChange("email", e.target.value)}
                                         onBlur={() => handleBlur("email")}
-                                        className={`input-field ${errors.email ? "border-destructive focus:ring-destructive/50" : ""}`}
+                                        className={`input-field ${errors.email ? "border-primary focus:ring-primary/50" : ""}`}
                                         placeholder="your@email.com"
                                     />
                                     {errors.email && (
-                                        <p className="mt-1 text-sm text-destructive">{errors.email}</p>
+                                        <p className="mt-1 text-sm text-primary">{errors.email}</p>
                                     )}
                                 </div>
                             </div>
 
                             <div className="mb-6">
-                                <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                                <label htmlFor="message" className="block text-sm font-medium text-zinc-300 mb-2">
                                     Message
                                 </label>
                                 <textarea
@@ -179,11 +178,11 @@ export function Contact() {
                                     value={formData.message}
                                     onChange={(e) => handleChange("message", e.target.value)}
                                     onBlur={() => handleBlur("message")}
-                                    className={`input-field resize-none ${errors.message ? "border-destructive focus:ring-destructive/50" : ""}`}
+                                    className={`input-field resize-none ${errors.message ? "border-primary focus:ring-primary/50" : ""}`}
                                     placeholder="Your message..."
                                 />
                                 {errors.message && (
-                                    <p className="mt-1 text-sm text-destructive">{errors.message}</p>
+                                    <p className="mt-1 text-sm text-primary">{errors.message}</p>
                                 )}
                             </div>
 
@@ -211,18 +210,18 @@ export function Contact() {
                             </button>
 
                             {status === "success" && (
-                                <div className="mt-4 p-4 rounded-lg bg-accent flex items-center gap-3">
-                                    <CheckCircle className="w-5 h-5 text-primary" />
-                                    <p className="text-sm text-accent-foreground">
+                                <div className="mt-4 p-4 rounded-xl bg-zinc-900 border border-green-500/20 flex items-center gap-3">
+                                    <CheckCircle className="w-5 h-5 text-green-500" />
+                                    <p className="text-sm text-green-400">
                                         Thank you for your message! I'll get back to you soon.
                                     </p>
                                 </div>
                             )}
 
                             {status === "error" && (
-                                <div className="mt-4 p-4 rounded-lg bg-destructive/10 flex items-center gap-3">
-                                    <AlertCircle className="w-5 h-5 text-destructive" />
-                                    <p className="text-sm text-destructive">
+                                <div className="mt-4 p-4 rounded-xl bg-zinc-900 border border-primary/20 flex items-center gap-3">
+                                    <AlertCircle className="w-5 h-5 text-primary" />
+                                    <p className="text-sm text-primary">
                                         {submitError || "Something went wrong. Please try again later."}
                                     </p>
                                 </div>
