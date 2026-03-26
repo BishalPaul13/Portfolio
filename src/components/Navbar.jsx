@@ -7,6 +7,7 @@ const navLinks = [
     { name: "Skills", href: "#skills", id: "skills" },
     { name: "Projects", href: "#projects", id: "projects" },
     { name: "Experience", href: "#experience", id: "experience" },
+    { name: "Certifications", href: "#certifications", id: "certifications" },
     { name: "Contact", href: "#contact", id: "contact" },
 ];
 
@@ -84,7 +85,7 @@ export function Navbar() {
 
     return (
         <header
-            className={`fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[calc(100%-2rem)] max-w-[850px] ${
+            className={`fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[calc(100%-2rem)] max-w-[1050px] ${
                 isScrolled ? "top-4" : "top-4 md:top-6"
             }`}
         >
