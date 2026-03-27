@@ -109,7 +109,7 @@ export function Projects() {
                             onClick={() => setSelectedProject(project)}
                         >
                             <div className="flex items-center justify-between mb-6">
-                                <div className="text-4xl filter grayscale group-hover:grayscale-0 transition-all duration-300">{project.image}</div>
+                                <div className="text-4xl transition-all duration-300">{project.image}</div>
                                 <span
                                     className={`px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide ${
                                         project.status === "Live"
