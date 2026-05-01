@@ -89,9 +89,9 @@ export function Navbar() {
                 isScrolled ? "top-4" : "top-4 md:top-6"
             }`}
         >
-            <nav className="rounded-2xl bg-zinc-900/90 backdrop-blur-xl border border-zinc-800 px-4 py-3 md:px-6 shadow-lg shadow-black/25">
+            <nav className="rounded-2xl bg-white/90 backdrop-blur-xl border border-slate-200 px-4 py-3 md:px-6 shadow-lg shadow-slate-900/10">
                 <div className="flex items-center justify-between">
-                    <a href="#hero" className="text-lg font-extrabold text-white">
+                    <a href="#hero" className="text-lg font-extrabold text-slate-900">
                         Bishal<span className="text-red-500">.</span>
                     </a>
 
@@ -118,8 +118,8 @@ export function Navbar() {
                                     ref={(el) => (navRefs.current[link.id] = el)}
                                     className={`relative z-10 px-3 py-1.5 text-sm font-medium rounded-xl transition-colors ${
                                         isActive
-                                            ? "text-red-400"
-                                            : "text-zinc-400 hover:text-zinc-200"
+                                            ? "text-red-500"
+                                            : "text-slate-500 hover:text-slate-900"
                                     }`}
                                 >
                                     <span>{link.name}</span>
@@ -140,7 +140,7 @@ export function Navbar() {
                     <div className="flex md:hidden items-center">
                         <button
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                            className="text-zinc-400 hover:text-red-400 transition-colors"
+                            className="text-slate-500 hover:text-red-500 transition-colors"
                             aria-label="Toggle menu"
                         >
                             {isMobileMenuOpen ? (
@@ -156,7 +156,7 @@ export function Navbar() {
             {/* Mobile Menu */}
             {isMobileMenuOpen && (
                 <div className="md:hidden mt-2">
-                    <div className="bg-zinc-900/95 backdrop-blur-xl border border-zinc-800 rounded-2xl p-4 flex flex-col gap-2 shadow-lg shadow-black/50">
+                    <div className="bg-white/95 backdrop-blur-xl border border-slate-200 rounded-2xl p-4 flex flex-col gap-2 shadow-lg shadow-slate-900/15">
                         {navLinks.map((link) => {
                             const isActive = activeSection === link.id;
                             return (
@@ -165,8 +165,8 @@ export function Navbar() {
                                     href={link.href}
                                     className={`px-3 py-2 text-sm font-medium rounded-xl transition-colors border ${
                                         isActive
-                                            ? "text-red-400 bg-red-500/10 border-red-500/20 shadow-sm shadow-red-500/5"
-                                            : "text-zinc-400 hover:text-zinc-200 hover:bg-white/5 border-transparent"
+                                            ? "text-red-500 bg-red-500/10 border-red-500/20 shadow-sm shadow-red-500/5"
+                                            : "text-slate-500 hover:text-slate-900 hover:bg-slate-100 border-transparent"
                                     }`}
                                     onClick={() => setIsMobileMenuOpen(false)}
                                 >
@@ -178,7 +178,7 @@ export function Navbar() {
                             href="/Bishal-Paul-Resume.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="px-3 py-2 text-sm font-medium text-red-400 hover:bg-red-500/10 rounded-xl flex"
+                            className="px-3 py-2 text-sm font-medium text-red-500 hover:bg-red-500/10 rounded-xl flex"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
                             Resume

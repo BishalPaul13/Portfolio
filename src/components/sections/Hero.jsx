@@ -13,19 +13,19 @@ export function Hero() {
     return (
         <section id="hero" className="relative flex min-h-screen items-center justify-center px-4 md:px-6 overflow-hidden">
             <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-                <div className="absolute w-[600px] h-[600px] rounded-full opacity-20 blur-[120px] pointer-events-none" style={{background:"radial-gradient(circle, rgba(239,68,68,0.4) 0%, rgba(249,115,22,0.3) 40%, transparent 70%)",left:"50%",top:"50%",transform:"translateX(-50%) translateY(-50%)"}}></div>
-                <div className="absolute w-[300px] h-[300px] rounded-full opacity-15 blur-[80px] pointer-events-none" style={{background:"radial-gradient(circle, rgba(249,115,22,0.5) 0%, rgba(239,68,68,0.2) 50%, transparent 70%)",left:"60%",top:"40%",transform:"translateX(-50%) translateY(-50%)"}}></div>
+                <div className="absolute w-[600px] h-[600px] rounded-full opacity-10 blur-[120px] pointer-events-none" style={{background:"radial-gradient(circle, rgba(239,68,68,0.3) 0%, rgba(249,115,22,0.2) 40%, transparent 70%)",left:"50%",top:"50%",transform:"translateX(-50%) translateY(-50%)"}}></div>
+                <div className="absolute w-[300px] h-[300px] rounded-full opacity-10 blur-[80px] pointer-events-none" style={{background:"radial-gradient(circle, rgba(249,115,22,0.4) 0%, rgba(239,68,68,0.15) 50%, transparent 70%)",left:"60%",top:"40%",transform:"translateX(-50%) translateY(-50%)"}}></div>
             </div>
             
             <div className="absolute inset-x-0 bottom-0 h-[40vh] bg-gradient-to-t from-red-500/5 to-transparent pointer-events-none z-[1]"></div>
             
             <div className="relative z-10 mx-auto max-w-4xl text-center flex flex-col items-center animate-slide-up">
-                <p className="text-lg text-[#a1a1aa]">Hey, I'm</p>
-                <h1 className="mt-2 text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-[#fafafa] leading-[1.1] uppercase" style={{textShadow:"0 0 60px rgba(239, 68, 68, 0.2)"}}>BISHAL PAUL</h1>
+                <p className="text-lg text-slate-500">Hey, I'm</p>
+                <h1 className="mt-2 text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-slate-900 leading-[1.1] uppercase" style={{textShadow:"0 0 60px rgba(239, 68, 68, 0.1)"}}>BISHAL PAUL</h1>
                 <div className="mt-4 flex justify-center">
                     <span className="inline-flex items-center bg-red-500 text-white px-4 py-1.5 rounded-full text-sm font-medium">Full Stack Developer</span>
                 </div>
-                <p className="mt-6 text-xl sm:text-2xl text-[#a1a1aa] leading-relaxed">
+                <p className="mt-6 text-xl sm:text-2xl text-slate-500 leading-relaxed">
                     I build and craft digital experiences
                     <br className="hidden sm:block"/>
                     {" "}that deliver{" "}
@@ -38,7 +38,7 @@ export function Hero() {
                     </a>
                     <button 
                         onClick={handleCopyEmail}
-                        className="inline-flex items-center gap-2 text-[#a1a1aa] text-sm hover:text-[#fafafa] active:scale-95 active:text-[#fafafa] transition-colors cursor-pointer"
+                        className="inline-flex items-center gap-2 text-slate-500 text-sm hover:text-slate-900 active:scale-95 active:text-slate-900 transition-colors cursor-pointer"
                     >
                         bishalpaul151@gmail.com
                         {copied ? <Check className="w-3.5 h-3.5 text-green-400" /> : <Copy className="w-3.5 h-3.5" />}
@@ -46,7 +46,7 @@ export function Hero() {
                 </div>
             </div>
 
-            <a href="#about" className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce flex flex-col items-center gap-2 z-20 text-zinc-500 hover:text-red-400 transition-colors cursor-none md:cursor-pointer">
+            <a href="#about" className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce flex flex-col items-center gap-2 z-20 text-slate-400 hover:text-red-500 transition-colors">
                 <ArrowDown className="w-6 h-6" />
             </a>
         </section>

@@ -41,7 +41,7 @@ export function Certifications() {
         <section id="certifications" className="section-padding">
             <div className="section-container">
                 <div className="flex items-center gap-6 mb-16">
-                    <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
+                    <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
                         Certifications<span className="text-primary">.</span>
                     </h2>
                     <div className="section-heading-line" />
@@ -62,26 +62,26 @@ export function Certifications() {
                                 <div className="p-3 rounded-xl bg-red-500/10 text-red-500 group-hover:bg-red-500 group-hover:text-white transition-colors duration-300">
                                     <Award className="w-6 h-6" />
                                 </div>
-                                <span className="text-xs font-mono text-zinc-500 px-3 py-1 rounded-full bg-zinc-900/50 border border-zinc-800">
+                                <span className="text-xs font-mono text-slate-500 px-3 py-1 rounded-full bg-slate-100 border border-slate-200">
                                     {cert.date}
                                 </span>
                             </div>
 
-                            <h3 className="text-xl font-bold text-white mb-2 leading-tight group-hover:text-red-400 transition-colors duration-300">
+                            <h3 className="text-xl font-bold text-slate-900 mb-2 leading-tight group-hover:text-red-500 transition-colors duration-300">
                                 {cert.title}
                             </h3>
                             <p className="text-primary font-medium text-sm mb-4">
                                 {cert.issuer}
                             </p>
-                            <p className="text-zinc-400 text-sm mb-6 flex-grow leading-relaxed">
+                            <p className="text-slate-600 text-sm mb-6 flex-grow leading-relaxed">
                                 {cert.description}
                             </p>
 
-                            <div className="mt-auto pt-4 border-t border-zinc-800/50 flex items-center justify-between">
-                                <span className="text-xs text-zinc-500 italic">
+                            <div className="mt-auto pt-4 border-t border-slate-200 flex items-center justify-between">
+                                <span className="text-xs text-slate-400 italic">
                                     Click card to view certificate
                                 </span>
-                                <span className="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-400 group-hover:text-red-400 transition-colors duration-300">
+                                <span className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-500 group-hover:text-red-500 transition-colors duration-300">
                                     View Credential
                                     <ExternalLink className="w-4 h-4" />
                                 </span>

@@ -95,7 +95,7 @@ export function Projects() {
         <section id="projects" className="section-padding">
             <div className="section-container">
                 <div className="flex items-center gap-6 mb-16">
-                    <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
+                    <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
                         Featured Projects<span className="text-primary">.</span>
                     </h2>
                     <div className="section-heading-line" />
@@ -113,24 +113,24 @@ export function Projects() {
                                 <span
                                     className={`px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide ${
                                         project.status === "Live"
-                                            ? "bg-zinc-900 border border-zinc-800 text-primary"
-                                            : "bg-zinc-900 border border-zinc-800 text-zinc-400"
+                                            ? "bg-slate-100 border border-slate-200 text-primary"
+                                            : "bg-slate-100 border border-slate-200 text-slate-500"
                                     }`}
                                 >
                                     {project.status === "Live" ? "Live Demo" : "Source Code"}
                                 </span>
                             </div>
-                            <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-primary transition-colors">
+                            <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-primary transition-colors">
                                 {project.title}
                             </h3>
-                            <p className="text-zinc-400 text-base mb-6 line-clamp-2 leading-relaxed">
+                            <p className="text-slate-600 text-base mb-6 line-clamp-2 leading-relaxed">
                                 {project.description}
                             </p>
                             <div className="flex flex-wrap gap-2 mt-auto">
                                 {project.tech.map((tech) => (
                                     <span
                                         key={tech}
-                                        className="text-xs font-mono text-zinc-400 bg-zinc-900/50 border border-zinc-800/50 px-3 py-1.5 rounded-lg"
+                                        className="text-xs font-mono text-slate-600 bg-slate-100 border border-slate-200 px-3 py-1.5 rounded-lg"
                                     >
                                         {tech}
                                     </span>
@@ -148,31 +148,31 @@ export function Projects() {
                     onClick={() => setSelectedProject(null)}
                 >
                     <div
-                        className="bg-zinc-950 border border-zinc-800 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 md:p-8 animate-slide-up shadow-2xl"
+                        className="bg-white border border-slate-200 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 md:p-8 animate-slide-up shadow-2xl"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <div className="flex justify-between items-start mb-8 gap-4">
                             <div className="flex items-center gap-4">
                                 <span className="text-4xl">{selectedProject.image}</span>
-                                <h3 className="text-3xl font-extrabold text-white tracking-tight">
+                                <h3 className="text-3xl font-extrabold text-slate-900 tracking-tight">
                                     {selectedProject.title}
                                 </h3>
                             </div>
                             <button
                                 onClick={() => setSelectedProject(null)}
-                                className="p-2.5 rounded-xl hover:bg-zinc-900 border border-transparent hover:border-zinc-800 transition-colors text-zinc-400 hover:text-white"
+                                className="p-2.5 rounded-xl hover:bg-slate-100 border border-transparent hover:border-slate-200 transition-colors text-slate-500 hover:text-slate-900"
                                 aria-label="Close modal"
                             >
                                 <X className="w-5 h-5" />
                             </button>
                         </div>
 
-                        <p className="text-zinc-400 mb-8 text-lg leading-relaxed">
+                        <p className="text-slate-600 mb-8 text-lg leading-relaxed">
                             {selectedProject.longDescription}
                         </p>
 
                         <div className="mb-8">
-                            <h4 className="text-lg font-bold text-white mb-3">
+                            <h4 className="text-lg font-bold text-slate-900 mb-3">
                                 Impact
                             </h4>
                             <p className="text-sm font-mono text-primary bg-primary/10 border border-primary/20 rounded-xl px-4 py-3">
@@ -181,16 +181,16 @@ export function Projects() {
                         </div>
 
                         <div className="mb-8">
-                            <h4 className="text-lg font-bold text-white mb-4">
+                            <h4 className="text-lg font-bold text-slate-900 mb-4">
                                 Key Features
                             </h4>
                             <ul className="grid md:grid-cols-2 gap-3">
                                 {selectedProject.features.map((feature) => (
                                     <li
                                         key={feature}
-                                        className="flex items-start gap-3 text-zinc-400 text-sm"
+                                        className="flex items-start gap-3 text-slate-600 text-sm"
                                     >
-                                        <span className="w-1.5 h-1.5 rounded-full bg-zinc-700 mt-2" />
+                                        <span className="w-1.5 h-1.5 rounded-full bg-slate-300 mt-2" />
                                         {feature}
                                     </li>
                                 ))}
@@ -198,7 +198,7 @@ export function Projects() {
                         </div>
 
                         <div className="mb-10">
-                            <h4 className="text-lg font-bold text-white mb-4">
+                            <h4 className="text-lg font-bold text-slate-900 mb-4">
                                 Tech Stack
                             </h4>
                             <div className="flex flex-wrap gap-2">
@@ -210,7 +210,7 @@ export function Projects() {
                             </div>
                         </div>
 
-                        <div className="flex flex-wrap gap-4 pt-6 border-t border-zinc-900">
+                        <div className="flex flex-wrap gap-4 pt-6 border-t border-slate-200">
                             <a
                                 href={selectedProject.github}
                                 target="_blank"

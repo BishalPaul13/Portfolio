@@ -86,7 +86,7 @@ export function Contact() {
         <section id="contact" className="section-padding">
             <div className="section-container">
                 <div className="flex items-center gap-6 mb-16">
-                    <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
+                    <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
                         Get In Touch<span className="text-primary">.</span>
                     </h2>
                     <div className="section-heading-line" />
@@ -94,7 +94,7 @@ export function Contact() {
 
                 <div className="grid lg:grid-cols-5 gap-12">
                     <div className="lg:col-span-2 space-y-6">
-                        <p className="text-zinc-400 text-lg leading-relaxed">
+                        <p className="text-slate-600 text-lg leading-relaxed">
                             I'm currently seeking software engineering internships and entry-level roles.
                             Whether you have a challenging opportunity, want to collaborate, or just want to connect,
                             my inbox is always open!
@@ -102,14 +102,14 @@ export function Contact() {
 
                         <div className="space-y-6 pt-4">
                             <div className="flex items-center gap-4">
-                                <div className="p-3 rounded-xl bg-zinc-900 border border-zinc-800">
+                                <div className="p-3 rounded-xl bg-slate-100 border border-slate-200">
                                     <Mail className="w-5 h-5 text-primary" />
                                 </div>
                                 <div>
-                                    <p className="text-sm font-medium text-zinc-500">Email</p>
+                                    <p className="text-sm font-medium text-slate-500">Email</p>
                                     <a
                                         href="mailto:bishalpaul151@gmail.com"
-                                        className="text-white hover:text-primary transition-colors font-medium"
+                                        className="text-slate-900 hover:text-primary transition-colors font-medium"
                                     >
                                         bishalpaul151@gmail.com
                                     </a>
@@ -117,12 +117,12 @@ export function Contact() {
                             </div>
 
                             <div className="flex items-center gap-4">
-                                <div className="p-3 rounded-xl bg-zinc-900 border border-zinc-800">
+                                <div className="p-3 rounded-xl bg-slate-100 border border-slate-200">
                                     <MapPin className="w-5 h-5 text-primary" />
                                 </div>
                                 <div>
-                                    <p className="text-sm font-medium text-zinc-500">Location</p>
-                                    <p className="text-white font-medium">Jalandhar, Punjab</p>
+                                    <p className="text-sm font-medium text-slate-500">Location</p>
+                                    <p className="text-slate-900 font-medium">Jalandhar, Punjab</p>
                                 </div>
                             </div>
                         </div>
@@ -132,7 +132,7 @@ export function Contact() {
                         <form onSubmit={handleSubmit} className="project-card">
                             <div className="grid md:grid-cols-2 gap-4 mb-4">
                                 <div>
-                                    <label htmlFor="name" className="block text-sm font-medium text-zinc-300 mb-2">
+                                    <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-2">
                                         Name
                                     </label>
                                     <input
@@ -150,7 +150,7 @@ export function Contact() {
                                 </div>
 
                                 <div>
-                                    <label htmlFor="email" className="block text-sm font-medium text-zinc-300 mb-2">
+                                    <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">
                                         Email
                                     </label>
                                     <input
@@ -169,7 +169,7 @@ export function Contact() {
                             </div>
 
                             <div className="mb-6">
-                                <label htmlFor="message" className="block text-sm font-medium text-zinc-300 mb-2">
+                                <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">
                                     Message
                                 </label>
                                 <textarea
@@ -210,16 +210,16 @@ export function Contact() {
                             </button>
 
                             {status === "success" && (
-                                <div className="mt-4 p-4 rounded-xl bg-zinc-900 border border-green-500/20 flex items-center gap-3">
+                                <div className="mt-4 p-4 rounded-xl bg-green-50 border border-green-200 flex items-center gap-3">
                                     <CheckCircle className="w-5 h-5 text-green-500" />
-                                    <p className="text-sm text-green-400">
+                                    <p className="text-sm text-green-700">
                                         Thank you for your message! I'll get back to you soon.
                                     </p>
                                 </div>
                             )}
 
                             {status === "error" && (
-                                <div className="mt-4 p-4 rounded-xl bg-zinc-900 border border-primary/20 flex items-center gap-3">
+                                <div className="mt-4 p-4 rounded-xl bg-red-50 border border-primary/20 flex items-center gap-3">
                                     <AlertCircle className="w-5 h-5 text-primary" />
                                     <p className="text-sm text-primary">
                                         {submitError || "Something went wrong. Please try again later."}
