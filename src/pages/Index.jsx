@@ -7,12 +7,10 @@ import { Experience } from "@/components/sections/Experience";
 import { Certifications } from "@/components/sections/Certifications";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/Footer";
-import { FloatingBubbles } from "@/components/FloatingBubbles";
 
 const Index = () => {
     return (
-        <div className="min-h-screen bg-background">
-            <FloatingBubbles />
+        <div className="min-h-screen bg-background text-slate-950">
             <Navbar />
             <main>
                 <Hero />

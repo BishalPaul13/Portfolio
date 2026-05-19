@@ -1,6 +1,5 @@
 import { Award, ExternalLink } from "lucide-react";
 
-// 🔗 Replace each `link` value below with your actual certificate URL
 const certifications = [
     {
         title: "Cloud Computing",
@@ -8,15 +7,15 @@ const certifications = [
         date: "2025",
         description:
             "Completed NPTEL's Cloud Computing course covering cloud architectures, deployment models, virtualization, and scalable infrastructure design.",
-        link: "https://drive.google.com/file/d/1x00l51WtCCChOm7FPkT-tspWjosE6amw/view?usp=sharing", // ← Replace with your NPTEL certificate link
+        link: "https://drive.google.com/file/d/1x00l51WtCCChOm7FPkT-tspWjosE6amw/view?usp=sharing",
     },
     {
         title: "Data Structures & Algorithms using C++",
         issuer: "CipherSchools",
         date: "2024",
         description:
-            "Gained in-depth knowledge of core data structures and algorithms — arrays, trees, graphs, sorting, and dynamic programming — implemented in C++.",
-        link: "https://drive.google.com/file/d/1vUl32WXjaGFkl1sSggVhtWArcW9OC4iE/view?usp=sharing", // ← Replace with your CipherSchools certificate link
+            "Gained in-depth knowledge of core data structures and algorithms - arrays, trees, graphs, sorting, and dynamic programming - implemented in C++.",
+        link: "https://drive.google.com/file/d/1vUl32WXjaGFkl1sSggVhtWArcW9OC4iE/view?usp=sharing",
     },
     {
         title: "Mobile App Development using Flutter",
@@ -24,7 +23,7 @@ const certifications = [
         date: "2025",
         description:
             "Built cross-platform mobile applications using Flutter and Dart, covering state management, UI components, and REST API integration.",
-        link: "https://drive.google.com/file/d/1wlmtQwwxe1ApvpLXi4oJFZryqSDWnkDh/view?usp=sharing", // ← Replace with your CipherSchools certificate link
+        link: "https://drive.google.com/file/d/1wlmtQwwxe1ApvpLXi4oJFZryqSDWnkDh/view?usp=sharing",
     },
     {
         title: "Responsive Web Design",
@@ -32,58 +31,61 @@ const certifications = [
         date: "2023",
         description:
             "Earned the freeCodeCamp Responsive Web Design certification, covering HTML, CSS, Flexbox, Grid, and accessibility best practices.",
-        link: "https://drive.google.com/file/d/1XdlV7sMjLWKQ3KemBQ1Jg433eCOGJ8Gf/view?usp=sharing", // ← Replace with your fCC certificate link
+        link: "https://drive.google.com/file/d/1XdlV7sMjLWKQ3KemBQ1Jg433eCOGJ8Gf/view?usp=sharing",
     },
 ];
 
 export function Certifications() {
     return (
-        <section id="certifications" className="section-padding">
+        <section id="certifications" className="section-padding bg-white">
             <div className="section-container">
-                <div className="flex items-center gap-6 mb-16">
-                    <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                <div className="mb-12">
+                    <p className="section-kicker">Credentials</p>
+                    <h2 className="section-title">
                         Certifications<span className="text-primary">.</span>
                     </h2>
+                    <p className="section-lede">
+                        Verified coursework across cloud, algorithms, mobile development, and responsive web fundamentals.
+                    </p>
                     <div className="section-heading-line" />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
                     {certifications.map((cert, index) => (
                         <a
                             key={index}
                             href={cert.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="project-card flex flex-col h-full hover:shadow-[0_0_30px_rgba(239,68,68,0.15)] group animate-slide-up relative overflow-hidden cursor-pointer no-underline"
-                            style={{ animationDelay: `${index * 0.15}s` }}
+                            className="project-card group flex h-full flex-col no-underline"
                             title="Click to view certificate"
                         >
-                            <div className="flex items-start justify-between mb-6">
-                                <div className="p-3 rounded-xl bg-red-500/10 text-red-500 group-hover:bg-red-500 group-hover:text-white transition-colors duration-300">
-                                    <Award className="w-6 h-6" />
+                            <div className="mb-6 flex items-start justify-between">
+                                <div className="flex h-12 w-12 items-center justify-center rounded-md border border-red-200 bg-red-50 text-red-600 transition-colors duration-200 group-hover:bg-red-600 group-hover:text-white">
+                                    <Award className="h-6 w-6" />
                                 </div>
-                                <span className="text-xs font-mono text-slate-500 px-3 py-1 rounded-full bg-slate-100 border border-slate-200">
+                                <span className="rounded-md border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-mono text-slate-500">
                                     {cert.date}
                                 </span>
                             </div>
 
-                            <h3 className="text-xl font-bold text-slate-900 mb-2 leading-tight group-hover:text-red-500 transition-colors duration-300">
+                            <h3 className="mb-2 text-xl font-black leading-tight text-slate-950 transition-colors duration-200 group-hover:text-primary">
                                 {cert.title}
                             </h3>
-                            <p className="text-primary font-medium text-sm mb-4">
+                            <p className="mb-4 text-sm font-semibold text-primary">
                                 {cert.issuer}
                             </p>
-                            <p className="text-slate-600 text-sm mb-6 flex-grow leading-relaxed">
+                            <p className="mb-6 flex-grow text-sm leading-relaxed text-slate-600">
                                 {cert.description}
                             </p>
 
-                            <div className="mt-auto pt-4 border-t border-slate-200 flex items-center justify-between">
-                                <span className="text-xs text-slate-400 italic">
-                                    Click card to view certificate
+                            <div className="mt-auto flex items-center justify-between border-t border-slate-200 pt-4">
+                                <span className="text-xs font-medium text-slate-400">
+                                    Credential link
                                 </span>
-                                <span className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-500 group-hover:text-red-500 transition-colors duration-300">
-                                    View Credential
-                                    <ExternalLink className="w-4 h-4" />
+                                <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-600 transition-colors duration-200 group-hover:text-primary">
+                                    View
+                                    <ExternalLink className="h-4 w-4" />
                                 </span>
                             </div>
                         </a>

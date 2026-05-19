@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Menu, X } from "lucide-react";
+import { FileText, Menu, X } from "lucide-react";
 
 const navLinks = [
     { name: "Home", href: "#hero", id: "hero" },
@@ -85,21 +85,22 @@ export function Navbar() {
 
     return (
         <header
-            className={`fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[calc(100%-2rem)] max-w-[1050px] ${
-                isScrolled ? "top-4" : "top-4 md:top-6"
+            className={`fixed left-1/2 z-50 w-[calc(100%-1.5rem)] max-w-6xl -translate-x-1/2 transition-all duration-300 print:hidden ${
+                isScrolled ? "top-3" : "top-4 md:top-5"
             }`}
         >
-            <nav className="rounded-2xl bg-white/90 backdrop-blur-xl border border-slate-200 px-4 py-3 md:px-6 shadow-lg shadow-slate-900/10">
+            <nav className="rounded-lg border border-slate-200/90 bg-white/90 px-4 py-3 shadow-lg shadow-slate-900/5 backdrop-blur-xl md:px-5">
                 <div className="flex items-center justify-between">
-                    <a href="#hero" className="text-lg font-extrabold text-slate-900">
+                    <a href="#hero" className="flex items-center gap-2 text-base font-black text-slate-950" aria-label="Bishal Paul home">
+                        <span className="flex h-8 w-8 items-center justify-center rounded-md bg-slate-950 text-sm font-black text-white">
+                            BP
+                        </span>
                         Bishal<span className="text-red-500">.</span>
                     </a>
 
-                    {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-1 relative">
-                        {/* Smooth sliding reddish pill */}
                         <div
-                            className="absolute bg-red-500/10 border border-red-500/20 rounded-xl transition-all duration-300 ease-out z-0 pointer-events-none shadow-sm shadow-red-500/5"
+                            className="pointer-events-none absolute z-0 rounded-md border border-red-200 bg-red-50 transition-all duration-300 ease-out"
                             style={{
                                 left: activeRect.left,
                                 top: activeRect.top,
@@ -116,10 +117,10 @@ export function Navbar() {
                                     key={link.name}
                                     href={link.href}
                                     ref={(el) => (navRefs.current[link.id] = el)}
-                                    className={`relative z-10 px-3 py-1.5 text-sm font-medium rounded-xl transition-colors ${
+                                    className={`relative z-10 rounded-md px-3 py-1.5 text-sm font-semibold transition-colors ${
                                         isActive
-                                            ? "text-red-500"
-                                            : "text-slate-500 hover:text-slate-900"
+                                            ? "text-red-600"
+                                            : "text-slate-500 hover:text-slate-950"
                                     }`}
                                 >
                                     <span>{link.name}</span>
@@ -130,43 +131,39 @@ export function Navbar() {
                             href="/Bishal-Paul-Resume.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="px-3 py-1.5 text-sm font-medium rounded-xl text-red-500 bg-red-500/10 hover:bg-red-500/20 transition-colors ml-2 z-10"
+                            className="z-10 ml-2 inline-flex items-center gap-1.5 rounded-md bg-slate-950 px-3 py-1.5 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-slate-800"
                         >
+                            <FileText className="h-4 w-4" />
                             Resume
                         </a>
                     </div>
 
-                    {/* Mobile Menu Button */}
                     <div className="flex md:hidden items-center">
                         <button
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                            className="text-slate-500 hover:text-red-500 transition-colors"
+                            className="rounded-md p-2 text-slate-500 transition-colors hover:bg-slate-100 hover:text-red-600"
                             aria-label="Toggle menu"
+                            aria-expanded={isMobileMenuOpen}
                         >
-                            {isMobileMenuOpen ? (
-                                <X className="w-6 h-6" />
-                            ) : (
-                                <Menu className="w-6 h-6" />
-                            )}
+                            {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
                         </button>
                     </div>
                 </div>
             </nav>
 
-            {/* Mobile Menu */}
             {isMobileMenuOpen && (
                 <div className="md:hidden mt-2">
-                    <div className="bg-white/95 backdrop-blur-xl border border-slate-200 rounded-2xl p-4 flex flex-col gap-2 shadow-lg shadow-slate-900/15">
+                    <div className="flex flex-col gap-1 rounded-lg border border-slate-200 bg-white/95 p-2 shadow-lg shadow-slate-900/10 backdrop-blur-xl">
                         {navLinks.map((link) => {
                             const isActive = activeSection === link.id;
                             return (
                                 <a
                                     key={link.name}
                                     href={link.href}
-                                    className={`px-3 py-2 text-sm font-medium rounded-xl transition-colors border ${
+                                    className={`rounded-md border px-3 py-2 text-sm font-semibold transition-colors ${
                                         isActive
-                                            ? "text-red-500 bg-red-500/10 border-red-500/20 shadow-sm shadow-red-500/5"
-                                            : "text-slate-500 hover:text-slate-900 hover:bg-slate-100 border-transparent"
+                                            ? "border-red-200 bg-red-50 text-red-600"
+                                            : "border-transparent text-slate-600 hover:bg-slate-100 hover:text-slate-950"
                                     }`}
                                     onClick={() => setIsMobileMenuOpen(false)}
                                 >
@@ -178,9 +175,10 @@ export function Navbar() {
                             href="/Bishal-Paul-Resume.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="px-3 py-2 text-sm font-medium text-red-500 hover:bg-red-500/10 rounded-xl flex"
+                            className="mt-1 inline-flex items-center gap-2 rounded-md bg-slate-950 px-3 py-2 text-sm font-semibold text-white"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
+                            <FileText className="h-4 w-4" />
                             Resume
                         </a>
                     </div>

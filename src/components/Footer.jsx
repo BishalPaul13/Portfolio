@@ -15,9 +15,9 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-12 border-t border-border/70 bg-card/40">
+    <footer className="border-t border-slate-200 bg-white py-10 print:hidden">
       <div className="section-container">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="flex flex-col items-center justify-between gap-5 md:flex-row">
           <div className="flex items-center gap-6">
             {socialLinks.map((link) => (
               <a
@@ -25,7 +25,7 @@ export function Footer() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors p-2 rounded-full hover:bg-secondary/70"
+                className="rounded-md p-2 text-slate-500 transition-colors hover:bg-slate-100 hover:text-primary"
                 aria-label={link.name}
               >
                 <link.icon className="w-5 h-5" />
@@ -33,11 +33,11 @@ export function Footer() {
             ))}
           </div>
 
-          <p className="text-sm text-muted-foreground text-center">
+          <p className="text-center text-sm text-slate-500">
             Designed & Built by <span className="text-primary">Bishal</span>
           </p>
 
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-slate-500">
             &copy; {currentYear} All rights reserved.
           </p>
         </div>

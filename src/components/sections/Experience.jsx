@@ -1,4 +1,4 @@
-import { GraduationCap, ChevronRight } from "lucide-react";
+import { ChevronRight, GraduationCap } from "lucide-react";
 
 const education = [
     {
@@ -42,55 +42,59 @@ export function Experience() {
     return (
         <section id="experience" className="section-padding">
             <div className="section-container">
-                <div className="flex items-center gap-6 mb-16">
-                    <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                <div className="mb-12">
+                    <p className="section-kicker">CV Snapshot</p>
+                    <h2 className="section-title">
                         Experience & Education<span className="text-primary">.</span>
                     </h2>
+                    <p className="section-lede">
+                        Academic foundation, current credentials, and the signals recruiters need to scan quickly.
+                    </p>
                     <div className="section-heading-line" />
                 </div>
 
-                <div className="max-w-4xl">
-                    <div className="flex flex-wrap items-center gap-4 mb-10">
-                        <div className="p-3 rounded-xl bg-slate-100 border border-slate-200">
-                            <GraduationCap className="w-6 h-6 text-slate-600" />
-                        </div>
-                        <h3 className="text-2xl font-bold text-slate-900 tracking-tight">Education</h3>
-                        <div className="flex flex-wrap gap-2 text-xs font-mono ml-auto">
-                            <span className="badge">Current: B.Tech CSE</span>
-                            <span className="badge">GPA 8.1/10</span>
-                            <span className="badge">Open to internships</span>
-                        </div>
+                <div className="mb-8 flex flex-col gap-4 rounded-lg border border-slate-200 bg-white p-5 shadow-sm sm:flex-row sm:items-center">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-slate-950 text-white">
+                        <GraduationCap className="h-6 w-6" />
                     </div>
+                    <div>
+                        <h3 className="text-2xl font-black text-slate-950">Education</h3>
+                        <p className="mt-1 text-sm leading-6 text-slate-600">Open to internships and entry-level software engineering roles.</p>
+                    </div>
+                    <div className="flex flex-wrap gap-2 sm:ml-auto">
+                        <span className="badge">Current: B.Tech CSE</span>
+                        <span className="badge">GPA 8.1/10</span>
+                        <span className="badge">Open to internships</span>
+                    </div>
+                </div>
 
-                    <div className="relative space-y-8">
-                        <div className="absolute left-[7px] top-2 bottom-2 w-[2px] bg-gradient-to-b from-red-500/50 via-red-500/10 to-transparent"></div>
-                        {education.map((edu, index) => (
-                            <div key={index} className="relative pl-10 group animate-slide-up" style={{ animationDelay: `${index * 0.2}s` }}>
-                                <div className="absolute left-0 top-9 h-[16px] w-[16px] rounded-full border-2 border-red-500 bg-[#F8F9FA] shadow-[0_0_10px_rgba(239,68,68,0.3)] group-hover:bg-red-500 transition-all duration-300" />
-                                <div className="project-card hover:shadow-[0_0_30px_rgba(239,68,68,0.1)]">
-                                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
-                                        <h4 className="text-xl font-bold text-slate-900">{edu.title}</h4>
-                                        <span className="text-xs px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-500 font-medium tracking-wide">
-                                            {edu.duration}
-                                        </span>
+                <div className="relative space-y-5">
+                    <div className="absolute left-4 top-4 hidden h-[calc(100%-2rem)] w-px bg-slate-200 md:block" />
+                    {education.map((edu, index) => (
+                        <article key={index} className="relative md:pl-12">
+                            <div className="absolute left-[9px] top-7 hidden h-3 w-3 rounded-full border-2 border-primary bg-white md:block" />
+                            <div className="project-card">
+                                <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                                    <div>
+                                        <h4 className="text-xl font-black text-slate-950">{edu.title}</h4>
+                                        <p className="mt-2 text-base font-semibold text-primary">{edu.company}</p>
                                     </div>
-                                    <p className="text-lg text-primary font-medium mb-4">{edu.company}</p>
-                                    <p className="text-slate-600 text-base mb-6 leading-relaxed">{edu.description}</p>
-                                    <ul className="space-y-3">
-                                        {edu.highlights.map((highlight, hIndex) => (
-                                            <li
-                                                key={hIndex}
-                                                className="flex items-start gap-3 text-sm text-slate-600"
-                                            >
-                                                <ChevronRight className="w-4 h-4 text-zinc-600 shrink-0 mt-0.5 group-hover:text-primary transition-colors duration-300" />
-                                                {highlight}
-                                            </li>
-                                        ))}
-                                    </ul>
+                                    <span className="w-fit rounded-md border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.12em] text-slate-500">
+                                        {edu.duration}
+                                    </span>
                                 </div>
+                                <p className="mb-5 text-base leading-relaxed text-slate-600">{edu.description}</p>
+                                <ul className="space-y-3">
+                                    {edu.highlights.map((highlight, hIndex) => (
+                                        <li key={hIndex} className="flex items-start gap-3 text-sm leading-6 text-slate-600">
+                                            <ChevronRight className="mt-1 h-4 w-4 shrink-0 text-primary" />
+                                            {highlight}
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
-                        ))}
-                    </div>
+                        </article>
+                    ))}
                 </div>
             </div>
         </section>

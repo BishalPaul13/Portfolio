@@ -85,54 +85,56 @@ export function Contact() {
     return (
         <section id="contact" className="section-padding">
             <div className="section-container">
-                <div className="flex items-center gap-6 mb-16">
-                    <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                <div className="mb-12">
+                    <p className="section-kicker">Contact</p>
+                    <h2 className="section-title">
                         Get In Touch<span className="text-primary">.</span>
                     </h2>
+                    <p className="section-lede">
+                        I'm currently seeking software engineering internships and entry-level roles.
+                    </p>
                     <div className="section-heading-line" />
                 </div>
 
-                <div className="grid lg:grid-cols-5 gap-12">
-                    <div className="lg:col-span-2 space-y-6">
-                        <p className="text-slate-600 text-lg leading-relaxed">
-                            I'm currently seeking software engineering internships and entry-level roles.
-                            Whether you have a challenging opportunity, want to collaborate, or just want to connect,
-                            my inbox is always open!
+                <div className="grid gap-8 lg:grid-cols-5">
+                    <div className="space-y-6 lg:col-span-2">
+                        <p className="text-lg leading-relaxed text-slate-600">
+                            Whether you have a challenging opportunity, want to collaborate, or just want to connect, my inbox is always open!
                         </p>
 
-                        <div className="space-y-6 pt-4">
-                            <div className="flex items-center gap-4">
-                                <div className="p-3 rounded-xl bg-slate-100 border border-slate-200">
+                        <div className="space-y-4 pt-2">
+                            <div className="project-card flex items-center gap-4 p-4">
+                                <div className="rounded-md border border-slate-200 bg-slate-50 p-3">
                                     <Mail className="w-5 h-5 text-primary" />
                                 </div>
                                 <div>
-                                    <p className="text-sm font-medium text-slate-500">Email</p>
+                                    <p className="text-sm font-semibold text-slate-500">Email</p>
                                     <a
                                         href="mailto:bishalpaul151@gmail.com"
-                                        className="text-slate-900 hover:text-primary transition-colors font-medium"
+                                        className="font-semibold text-slate-950 transition-colors hover:text-primary"
                                     >
                                         bishalpaul151@gmail.com
                                     </a>
                                 </div>
                             </div>
 
-                            <div className="flex items-center gap-4">
-                                <div className="p-3 rounded-xl bg-slate-100 border border-slate-200">
+                            <div className="project-card flex items-center gap-4 p-4">
+                                <div className="rounded-md border border-slate-200 bg-slate-50 p-3">
                                     <MapPin className="w-5 h-5 text-primary" />
                                 </div>
                                 <div>
-                                    <p className="text-sm font-medium text-slate-500">Location</p>
-                                    <p className="text-slate-900 font-medium">Jalandhar, Punjab</p>
+                                    <p className="text-sm font-semibold text-slate-500">Location</p>
+                                    <p className="font-semibold text-slate-950">Jalandhar, Punjab</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div className="lg:col-span-3">
-                        <form onSubmit={handleSubmit} className="project-card">
-                            <div className="grid md:grid-cols-2 gap-4 mb-4">
+                        <form onSubmit={handleSubmit} className="project-card p-5 md:p-6">
+                            <div className="mb-4 grid gap-4 md:grid-cols-2">
                                 <div>
-                                    <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-2">
+                                    <label htmlFor="name" className="mb-2 block text-sm font-semibold text-slate-700">
                                         Name
                                     </label>
                                     <input
@@ -150,7 +152,7 @@ export function Contact() {
                                 </div>
 
                                 <div>
-                                    <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">
+                                    <label htmlFor="email" className="mb-2 block text-sm font-semibold text-slate-700">
                                         Email
                                     </label>
                                     <input
@@ -169,7 +171,7 @@ export function Contact() {
                             </div>
 
                             <div className="mb-6">
-                                <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">
+                                <label htmlFor="message" className="mb-2 block text-sm font-semibold text-slate-700">
                                     Message
                                 </label>
                                 <textarea
@@ -210,7 +212,7 @@ export function Contact() {
                             </button>
 
                             {status === "success" && (
-                                <div className="mt-4 p-4 rounded-xl bg-green-50 border border-green-200 flex items-center gap-3">
+                                <div className="mt-4 flex items-center gap-3 rounded-lg border border-green-200 bg-green-50 p-4">
                                     <CheckCircle className="w-5 h-5 text-green-500" />
                                     <p className="text-sm text-green-700">
                                         Thank you for your message! I'll get back to you soon.
@@ -219,7 +221,7 @@ export function Contact() {
                             )}
 
                             {status === "error" && (
-                                <div className="mt-4 p-4 rounded-xl bg-red-50 border border-primary/20 flex items-center gap-3">
+                                <div className="mt-4 flex items-center gap-3 rounded-lg border border-primary/20 bg-red-50 p-4">
                                     <AlertCircle className="w-5 h-5 text-primary" />
                                     <p className="text-sm text-primary">
                                         {submitError || "Something went wrong. Please try again later."}

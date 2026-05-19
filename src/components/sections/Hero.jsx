@@ -1,4 +1,4 @@
-import { ArrowRight, Copy, Check, ArrowDown } from "lucide-react";
+import { ArrowRight, Copy, Check, Download, Mail, MapPin } from "lucide-react";
 import { useState } from "react";
 
 export function Hero() {
@@ -11,44 +11,86 @@ export function Hero() {
     };
 
     return (
-        <section id="hero" className="relative flex min-h-screen items-center justify-center px-4 md:px-6 overflow-hidden">
-            <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-                <div className="absolute w-[600px] h-[600px] rounded-full opacity-10 blur-[120px] pointer-events-none" style={{background:"radial-gradient(circle, rgba(239,68,68,0.3) 0%, rgba(249,115,22,0.2) 40%, transparent 70%)",left:"50%",top:"50%",transform:"translateX(-50%) translateY(-50%)"}}></div>
-                <div className="absolute w-[300px] h-[300px] rounded-full opacity-10 blur-[80px] pointer-events-none" style={{background:"radial-gradient(circle, rgba(249,115,22,0.4) 0%, rgba(239,68,68,0.15) 50%, transparent 70%)",left:"60%",top:"40%",transform:"translateX(-50%) translateY(-50%)"}}></div>
-            </div>
-            
-            <div className="absolute inset-x-0 bottom-0 h-[40vh] bg-gradient-to-t from-red-500/5 to-transparent pointer-events-none z-[1]"></div>
-            
-            <div className="relative z-10 mx-auto max-w-4xl text-center flex flex-col items-center animate-slide-up">
-                <p className="text-lg text-slate-500">Hey, I'm</p>
-                <h1 className="mt-2 text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-slate-900 leading-[1.1] uppercase" style={{textShadow:"0 0 60px rgba(239, 68, 68, 0.1)"}}>BISHAL PAUL</h1>
-                <div className="mt-4 flex justify-center">
-                    <span className="inline-flex items-center bg-red-500 text-white px-4 py-1.5 rounded-full text-sm font-medium">Full Stack Developer</span>
-                </div>
-                <p className="mt-6 text-xl sm:text-2xl text-slate-500 leading-relaxed">
-                    I build and craft digital experiences
-                    <br className="hidden sm:block"/>
-                    {" "}that deliver{" "}
-                    <span className="font-serif italic" style={{background:"linear-gradient(135deg, #ef4444, #f97316)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>real impact</span>
-                </p>
-                <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="#contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-red-500 text-white text-sm font-medium shadow-lg shadow-red-500/25 transition-all duration-300 hover:bg-red-600">
-                        Let's Connect
-                        <ArrowRight className="w-4 h-4" />
-                    </a>
-                    <button 
-                        onClick={handleCopyEmail}
-                        className="inline-flex items-center gap-2 text-slate-500 text-sm hover:text-slate-900 active:scale-95 active:text-slate-900 transition-colors cursor-pointer"
-                    >
-                        bishalpaul151@gmail.com
-                        {copied ? <Check className="w-3.5 h-3.5 text-green-400" /> : <Copy className="w-3.5 h-3.5" />}
-                    </button>
-                </div>
-            </div>
+        <section id="hero" className="relative overflow-hidden pt-32 md:pt-36">
+            <div className="absolute inset-x-0 top-0 h-48 border-b border-slate-200/70 bg-[linear-gradient(to_right,rgba(15,23,42,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.06)_1px,transparent_1px)] bg-[size:32px_32px] opacity-50" aria-hidden="true" />
 
-            <a href="#about" className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce flex flex-col items-center gap-2 z-20 text-slate-400 hover:text-red-500 transition-colors">
-                <ArrowDown className="w-6 h-6" />
-            </a>
+            <div className="section-container relative">
+                <div className="grid min-h-[calc(100vh-9rem)] items-center gap-10 pb-16 md:grid-cols-[1.05fr_0.95fr] md:pb-20">
+                    <div className="animate-slide-up">
+                        <div className="mb-6 flex flex-wrap items-center gap-3 text-sm font-semibold text-slate-600">
+                            <span className="rounded-md border border-red-200 bg-red-50 px-3 py-1.5 text-red-700">
+                                Full Stack Developer
+                            </span>
+                            <span className="inline-flex items-center gap-1.5">
+                                <MapPin className="h-4 w-4 text-slate-400" />
+                                Jalandhar, Punjab
+                            </span>
+                        </div>
+
+                        <p className="section-kicker">Hey, I'm</p>
+                        <h1 className="max-w-3xl text-5xl font-black leading-[0.98] text-slate-950 sm:text-6xl md:text-7xl lg:text-8xl">
+                            Bishal Paul
+                        </h1>
+                        <p className="mt-6 max-w-2xl text-xl leading-8 text-slate-600 sm:text-2xl sm:leading-9">
+                            I build and craft digital experiences that deliver{" "}
+                            <span className="font-semibold text-slate-950">real impact</span>.
+                        </p>
+
+                        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                            <a href="#contact" className="btn-primary">
+                                Let's Connect
+                                <ArrowRight className="h-4 w-4" />
+                            </a>
+                            <a
+                                href="/Bishal-Paul-Resume.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn-secondary"
+                            >
+                                <Download className="h-4 w-4" />
+                                Resume
+                            </a>
+                        </div>
+
+                        <button
+                            onClick={handleCopyEmail}
+                            className="mt-6 inline-flex items-center gap-2 rounded-md text-sm font-semibold text-slate-600 transition-colors hover:text-slate-950"
+                        >
+                            <Mail className="h-4 w-4 text-primary" />
+                            bishalpaul151@gmail.com
+                            {copied ? <Check className="h-4 w-4 text-emerald-500" /> : <Copy className="h-4 w-4 text-slate-400" />}
+                        </button>
+                    </div>
+
+                    <div className="animate-slide-up md:justify-self-end" style={{ animationDelay: "0.08s" }}>
+                        <div className="relative mx-auto max-w-sm">
+                            <div className="overflow-hidden rounded-lg border border-slate-200 bg-white p-3 shadow-2xl shadow-slate-900/10">
+                                <img
+                                    src="/profile-enhanced.png"
+                                    alt="Bishal Paul portrait"
+                                    className="aspect-[2/3] w-full rounded-md bg-slate-50 object-contain"
+                                />
+                            </div>
+                            <div className="absolute -bottom-5 left-5 right-5 rounded-lg border border-slate-200 bg-white/95 p-4 shadow-lg shadow-slate-900/10 backdrop-blur">
+                                <div className="grid grid-cols-3 divide-x divide-slate-200 text-center">
+                                    <div>
+                                        <p className="text-lg font-black text-slate-950">4</p>
+                                        <p className="mt-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">Projects</p>
+                                    </div>
+                                    <div>
+                                        <p className="text-lg font-black text-slate-950">8.1</p>
+                                        <p className="mt-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">GPA</p>
+                                    </div>
+                                    <div>
+                                        <p className="text-lg font-black text-slate-950">MERN</p>
+                                        <p className="mt-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">Stack</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     );
 }

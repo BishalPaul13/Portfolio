@@ -46,28 +46,30 @@ export function Skills() {
     ];
 
     return (
-        <section id="skills" className="py-[60px] md:py-[120px] px-4 md:px-6">
-            <div className="mx-auto max-w-4xl">
-                <div className="mb-16 text-center animate-slide-up">
-                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-slate-900">
+        <section id="skills" className="section-padding">
+            <div className="section-container">
+                <div className="mb-12 animate-slide-up">
+                    <p className="section-kicker">Stack</p>
+                    <h2 className="section-title">
                         Skills &amp; Expertise<span className="text-red-500">.</span>
                     </h2>
-                    <p className="mt-3 text-lg text-slate-500">
+                    <p className="section-lede">
                         A collection of technologies I'm proficient with, from languages to frameworks and tools
                     </p>
+                    <div className="section-heading-line" />
                 </div>
                 
-                <div className="space-y-10">
+                <div className="grid gap-5 lg:grid-cols-2">
                     {categories.map((category, idx) => (
-                        <div key={idx} className="animate-slide-up" style={{ animationDelay: `${idx * 0.1}s` }}>
-                            <h3 className="mb-4 text-lg font-semibold text-slate-700">
+                        <div key={idx} className="project-card animate-slide-up" style={{ animationDelay: `${idx * 0.1}s` }}>
+                            <h3 className="mb-5 text-lg font-black text-slate-950">
                                 {category.title}
                             </h3>
-                            <div className="flex flex-wrap gap-3">
+                            <div className="flex flex-wrap gap-2.5">
                                 {category.items.map((skill, skillIdx) => (
                                     <div 
                                         key={skillIdx}
-                                        className="flex items-center gap-2 rounded-lg bg-slate-100 border border-slate-200 px-3 py-2 transition-colors hover:bg-slate-200 hover:border-slate-300"
+                                        className="flex items-center gap-2 rounded-md border border-slate-200 bg-slate-50 px-3 py-2 transition-colors hover:border-slate-300 hover:bg-white"
                                     >
                                         <img 
                                             src={skill.logo} 
@@ -77,7 +79,7 @@ export function Skills() {
                                             className="shrink-0" 
                                             loading="lazy"
                                         />
-                                        <span className="text-sm font-medium text-slate-700">{skill.name}</span>
+                                        <span className="text-sm font-semibold text-slate-700">{skill.name}</span>
                                     </div>
                                 ))}
                             </div>
